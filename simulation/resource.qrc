@@ -1,0 +1,78 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>Image/Grass.jpg</file>
+        <file>Image/background.png</file>
+        <file>Image/templat.png</file>
+        <file>Image/terrain.svg</file>
+        <file>Image/road-path.svg</file>
+        <file>Image/Loading.png</file>
+        <file>Image/example-trefoil.gif</file>
+        <file>Image/kim_ang_ava_1.png</file>
+        <file>Image/kim_ang_ava_2.png</file>
+        <file>Image/T_chea_ava_1.jpg</file>
+        <file>Image/eye_icon.png</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>Image/Logo-AI.png</file>
+        <file>Image/icon-more.png</file>
+        <file>Image/tool-icon.png</file>
+        <file>Image/play-icon.png</file>
+        <file>Image/reset-icon.png</file>
+        <file>Image/stop-icon.png</file>
+        <file>Image/pause-icon.png</file>
+        <file>Image/visualize-icon.png</file>
+        <file>Image/icon/about_icon.png</file>
+        <file>Image/icon/exit_icon.png</file>
+        <file>Image/icon/help_icon.png</file>
+        <file>Image/icon/setting_icon.png</file>
+        <file>Image/icon/play_icon.png</file>
+        <file>Image/icon/back_icon.png</file>
+        <file>Image/icon/pause_icon.png</file>
+        <file>Image/icon/reset_icon.png</file>
+        <file>Image/icon/stop_icon.png</file>
+        <file>Image/icon/roc_logo.png</file>
+        <file>Image/icon/rupp_blue_logo.png</file>
+        <file>Image/icon/rupp_logo.png</file>
+        <file>Image/icon/tfd_logo.png</file>
+        <file>Image/icon/fe_logo.jpg</file>
+        <file>Image/icon/qt_logo.png</file>
+        <file>Image/icon/5_lanes_icon.png</file>
+        <file>Image/icon/no_turn_icon.png</file>
+        <file>Image/icon/3_lanes_icon.png</file>
+        <file>Image/icon/only_turn_icon.png</file>
+        <file>Image/icon/traffic_icon.png</file>
+        <file>Image/icon/no_traffic_icon.png</file>
+        <file>Image/icon/show_dector_icon.png</file>
+        <file>Image/icon/show_sight_seeing_icon.png</file>
+        <file>Image/icon/go_through_icon.png</file>
+        <file>Image/icon/show_road_icon.png</file>
+        <file>Image/down_icon.png</file>
+        <file>Image/left_icon.png</file>
+        <file>Image/right_icon.png</file>
+        <file>Image/icon/random_icon.png</file>
+        <file>Image/icon/back_icon_2.png</file>
+        <file>Image/icon/next_icon.png</file>
+        <file>Image/icon/icon_back_white.png</file>
+        <file>Image/icon/icon_next_white.png</file>
+    </qresource>
+    <qresource prefix="/cars">
+        <file>Image/Cars/Asset 1.png</file>
+        <file>Image/Cars/Asset 2.png</file>
+        <file>Image/Cars/Asset 3.png</file>
+        <file>Image/Cars/Asset 4.png</file>
+        <file>Image/Cars/Asset 7.png</file>
+        <file>Image/Cars/Asset 8.png</file>
+        <file>Image/Cars/Asset 5.png</file>
+        <file>Image/Cars/Asset 6.png</file>
+        <file>Image/Cars/Asset 9.png</file>
+        <file>Image/Cars/Asset 10.png</file>
+        <file>Image/Cars/Asset 11.png</file>
+        <file>Image/Cars/Asset 12.png</file>
+        <file>Image/Cars/Asset 13.png</file>
+        <file>Image/Cars/Asset 14.png</file>
+        <file>Image/Cars/EmergencyCars/Asset 1.png</file>
+        <file>Image/Cars/EmergencyCars/Asset 2.png</file>
+        <file>Image/Cars/EmergencyCars/Asset 3.png</file>
+        <file>Image/Cars/EmergencyCars/Asset 4.png</file>
+    </qresource>
+</RCC>

@@ -10,6 +10,7 @@
 #include <qmath.h>
 
 static const float ACCER = 0.01;
+static const int probabiltyForEmergencyCar = 50;
 
 class SimulationScene;
 class Vehicle: public QObject,public QGraphicsPixmapItem
@@ -96,7 +97,7 @@ public slots:
     void update(const VEHICLEMETHOD& mode = VEHICLEMETHOD::SIGHTSEEING);
     //void forward();
 private:
-    QPixmap generateImage() const;
+    QPixmap generateImage();
     Vehicle *getCollding();
     Vehicle *nextVehicle();
     SimulationScene *myScene() const;
@@ -133,6 +134,7 @@ private:
     VEHICLEMETHOD m_mode;
     bool m_Is_deletable;
     Vehicle* m_leader;
+    bool isEmergency = false;
 };
 
 #endif // VEHICLE_H

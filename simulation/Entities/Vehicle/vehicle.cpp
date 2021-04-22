@@ -417,45 +417,58 @@ void Vehicle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 
 
-QPixmap Vehicle::generateImage() const
+QPixmap Vehicle::generateImage()
 {
-    switch (qrand()%18) {
-    case 0:
-        return QPixmap(":/cars/Image/Cars/Asset 1.png");
-    case 1:
-        return QPixmap(":/cars/Image/Cars/Asset 2.png");
-    case 2:
-        return QPixmap(":/cars/Image/Cars/Asset 3.png");
-    case 3:
-        return QPixmap(":/cars/Image/Cars/Asset 4.png");
-    case 4:
-        return QPixmap(":/cars/Image/Cars/Asset 5.png");
-    case 5:
-        return QPixmap(":/cars/Image/Cars/Asset 6.png");
-    case 6:
-        return QPixmap(":/cars/Image/Cars/Asset 7.png");
-    case 7:
-        return QPixmap(":/cars/Image/Cars/Asset 8.png");
-    case 8:
-        return QPixmap(":/cars/Image/Cars/Asset 9.png");
-    case 9:
-        return QPixmap(":/cars/Image/Cars/Asset 10.png");
-    case 10:
-        return QPixmap(":/cars/Image/Cars/Asset 11.png");
-    case 11:
-        return QPixmap(":/cars/Image/Cars/Asset 12.png");
-    case 12:
-        return QPixmap(":/cars/Image/Cars/Asset 13.png");
-    case 13:
-        return QPixmap(":/cars/Image/Cars/Asset 14.png");
-    case 14:
-        return QPixmap(":/cars/Image/Cars/Asset 15.png");
-    case 15:
-        return QPixmap(":/cars/Image/Cars/Asset 16.png");
-    case 16:
-        return QPixmap(":/cars/Image/Cars/Asset 17.png");
-    case 17:
-        return QPixmap(":/cars/Image/Cars/Asset 18.png");
+    bool isEmergency = false;
+    if(qrand() % probabiltyForEmergencyCar + 1 == probabiltyForEmergencyCar)
+        isEmergency = true;
+
+    if(!isEmergency)
+    {
+        switch (qrand()% 14 + 1) {
+        case 1:
+            return QPixmap(":/cars/Image/Cars/Asset 1.png");
+        case 2:
+            return QPixmap(":/cars/Image/Cars/Asset 2.png");
+        case 3:
+            return QPixmap(":/cars/Image/Cars/Asset 3.png");
+        case 4:
+            return QPixmap(":/cars/Image/Cars/Asset 4.png");
+        case 5:
+            return QPixmap(":/cars/Image/Cars/Asset 5.png");
+        case 6:
+            return QPixmap(":/cars/Image/Cars/Asset 6.png");
+        case 7:
+            return QPixmap(":/cars/Image/Cars/Asset 7.png");
+        case 8:
+            return QPixmap(":/cars/Image/Cars/Asset 8.png");
+        case 9:
+            return QPixmap(":/cars/Image/Cars/Asset 9.png");
+        case 10:
+            return QPixmap(":/cars/Image/Cars/Asset 10.png");
+        case 11:
+            return QPixmap(":/cars/Image/Cars/Asset 11.png");
+        case 12:
+            return QPixmap(":/cars/Image/Cars/Asset 12.png");
+        case 13:
+            return QPixmap(":/cars/Image/Cars/Asset 13.png");
+        case 14:
+            return QPixmap(":/cars/Image/Cars/Asset 14.png");
+        }
+    }
+    else
+    {
+        this->isEmergency = isEmergency;
+        switch (qrand()% 4 + 1) {
+        case 1:
+            return QPixmap(":/cars/Image/Cars/EmergencyCars/Asset 1.png");
+        case 2:
+            return QPixmap(":/cars/Image/Cars/EmergencyCars/Asset 2.png");
+        case 3:
+            return QPixmap(":/cars/Image/Cars/EmergencyCars/Asset 3.png");
+        case 4:
+            return QPixmap(":/cars/Image/Cars/EmergencyCars/Asset 4.png");
+        }
     }
 }
 
