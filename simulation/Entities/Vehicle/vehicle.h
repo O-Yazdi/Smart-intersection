@@ -66,6 +66,7 @@ public:
     /// ////////////
 
 
+    int getPriority() const {return priority;}
     bool is_in_stop_point();
     QList<QPointF> get_path() const;
     bool Isinthejunction();
@@ -135,6 +136,10 @@ private:
     bool m_Is_deletable;
     Vehicle* m_leader;
     bool isEmergency = false;
+    int createRandomPriority();
+    int createRandomPriorityForEachPassenger();
+    int createRandomAmountOfPassengersInVehicle();
+    int priority;
 };
 
 #endif // VEHICLE_H

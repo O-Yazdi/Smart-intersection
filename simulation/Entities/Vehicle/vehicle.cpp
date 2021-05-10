@@ -32,6 +32,8 @@ Vehicle::Vehicle(QGraphicsItem *parent)
     setOffset(10,5);
     setPixmap(generateImage().scaled(25,13,Qt::KeepAspectRatio,
                                            Qt::TransformationMode::SmoothTransformation));
+
+    priority = createRandomPriority();
 }
 
 Vehicle::~Vehicle()
@@ -550,4 +552,70 @@ bool Vehicle::ifAllowed() const
         }
     }
     return false;
+}
+
+int Vehicle::createRandomPriority()
+{
+    int totalPriority = 0;
+    int amountOfPassengersInVehicle = createRandomAmountOfPassengersInVehicle();
+    for (int i=0; i<amountOfPassengersInVehicle; i++)
+    {
+        totalPriority += createRandomPriorityForEachPassenger();
+    }
+    return totalPriority;
+}
+
+int Vehicle::createRandomAmountOfPassengersInVehicle()
+{
+    int amountOfPassengersInVehicle = 0;
+    int resRand = (rand()%100) + 1;
+    if(resRand <= 40)
+    {
+        amountOfPassengersInVehicle = 1;
+    }
+    else if (resRand <= 70)
+    {
+        amountOfPassengersInVehicle = 2;
+    }
+    else if (resRand <= 85)
+    {
+        amountOfPassengersInVehicle = 3;
+    }
+    else if (resRand <= 95)
+    {
+        amountOfPassengersInVehicle = 4;
+    }
+    else
+    {
+        amountOfPassengersInVehicle = 5;
+    }
+    return amountOfPassengersInVehicle;
+}
+
+
+int Vehicle::createRandomPriorityForEachPassenger()
+{
+    int priorityForOnePassenger = 0;
+    int resRand = (rand()%100) + 1;
+    if(resRand <= 25)
+    {
+        priorityForOnePassenger = 1;
+    }
+    else if (resRand <= 65)
+    {
+        priorityForOnePassenger = 2;
+    }
+    else if (resRand <= 85)
+    {
+        priorityForOnePassenger = 3;
+    }
+    else if (resRand <= 95)
+    {
+        priorityForOnePassenger = 4;
+    }
+    else
+    {
+        priorityForOnePassenger = 5;
+    }
+    return priorityForOnePassenger;
 }
