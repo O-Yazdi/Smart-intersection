@@ -163,6 +163,9 @@ QPointF Vehicle::get_initial_path() const
 void Vehicle::stop_advance()
 {
     m_speed = 0;
+
+    if(m_point_index >= 34 and m_point_index<=39 and waitingTimeinRed != 0)
+        waitingTimeinRed = QDateTime::currentSecsSinceEpoch();
 }
 
 bool Vehicle::isInsideIntersection()
@@ -193,6 +196,9 @@ void Vehicle::turnOnInteraction()
 
 void Vehicle::advance(int phase)
 {
+    if(m_point_index >= 40)
+        waitingTimeinRed = 0;
+
     Q_UNUSED(phase)
     if(this->is_in_stop_point()){
         if(this->isContainedSignal()){

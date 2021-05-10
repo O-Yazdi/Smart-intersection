@@ -140,6 +140,7 @@ private:
     int createRandomPriorityForEachPassenger();
     int createRandomAmountOfPassengersInVehicle();
     int priority;
+    int waitingTimeinRed = 0; //in sec from epoch
 };
 
 #endif // VEHICLE_H
