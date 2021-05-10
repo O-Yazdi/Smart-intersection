@@ -48,9 +48,9 @@ struct SimulationInput{
     int B_SN = 3000;
     int B_WE = 3900;
     int B_EW = 3600;
-    int RED_LIGHT = 5000;
-    int GREEN_LIGHT = 3500;
-    int LEFT_GREEN_LIGHT = 1500;
+    int RED_LIGHT = 1000000;//5000;
+    int GREEN_LIGHT = 1000000;//3500;
+    int LEFT_GREEN_LIGHT = 1000000;//1500;
     int YELLOW_LIGHT = 500;
     GENMETHOD METh = GENMETHOD::GEN_3;
     VEHICLEMETHOD MODE = VEHICLEMETHOD::SIGHTSEEING;
@@ -87,9 +87,9 @@ struct SimulationInput{
         YELLOW_LIGHT = 500;
     }
     void LightingLong(){
-        RED_LIGHT = 7000;
-        GREEN_LIGHT = 5000;
-        LEFT_GREEN_LIGHT = 2000;
+        RED_LIGHT = 1000000;//7000;
+        GREEN_LIGHT = 1000000;//5000;
+        LEFT_GREEN_LIGHT = 1000000;//2000;
         YELLOW_LIGHT = 500;
     }
     void ExperimentalCrazy(){
