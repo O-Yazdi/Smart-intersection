@@ -243,7 +243,7 @@ void SimulationScene::setCsGreenLight(int CsNum)
 {
     TurnOffAllLights();
 
-    if (CsNum==S_N-N_S-S_E-N_W)
+    if (CsNum==SN_NS_SE_NW)
      {
        m_Controller->getTraffic_light().at(0)->getLight()->at(1)->turnOn();
        m_Controller->getTraffic_light().at(2)->getLight()->at(1)->turnOn();
@@ -251,7 +251,7 @@ void SimulationScene::setCsGreenLight(int CsNum)
        m_Controller->getTraffic_light().at(1)->getLight()->at(3)->turnOn();
        m_Controller->getTraffic_light().at(3)->getLight()->at(3)->turnOn();
      }
-    else if (CsNum==S_W-N_E)
+    else if (CsNum==SW_NE)
     {
        m_Controller->getTraffic_light().at(0)->getLight()->at(0)->turnOn();
        m_Controller->getTraffic_light().at(2)->getLight()->at(0)->turnOn();
@@ -260,7 +260,7 @@ void SimulationScene::setCsGreenLight(int CsNum)
        m_Controller->getTraffic_light().at(3)->getLight()->at(3)->turnOn();
 
     }
-    else if (CsNum==W_E-E_W-E_N-W_S)
+    else if (CsNum==WE_EW_EN_WS)
     {
        m_Controller->getTraffic_light().at(1)->getLight()->at(1)->turnOn();
        m_Controller->getTraffic_light().at(3)->getLight()->at(1)->turnOn();
@@ -269,7 +269,7 @@ void SimulationScene::setCsGreenLight(int CsNum)
        m_Controller->getTraffic_light().at(2)->getLight()->at(3)->turnOn();
 
     }
-    else if (CsNum==E_S-W_N)
+    else if (CsNum==ES_WN)
     {
        m_Controller->getTraffic_light().at(1)->getLight()->at(0)->turnOn();
        m_Controller->getTraffic_light().at(3)->getLight()->at(0)->turnOn();
