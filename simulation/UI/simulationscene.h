@@ -1,5 +1,9 @@
 #ifndef SIMULATIONSCENE_H
 #define SIMULATIONSCENE_H
+#define S_N-N_S-S_E-N_W    0
+#define S_W-N_E            1
+#define W_E-E_W-E_N-W_S    2
+#define E_S-W_N            3
 
 #include <QGraphicsScene>
 #include <QGraphicsSvgItem>
@@ -47,6 +51,9 @@ public:
     void updateScene(const VEHICLEMETHOD &seeing);
     void turnOffInteraction();
     void turnOnInteraction();
+    void setCsGreenLight(int CsNum);
+    void SimulationScene::TurnOffAllLights();
+
 private:
     QList<Vehicle* > m_Vehicles;
     TrafficController *m_Controller;

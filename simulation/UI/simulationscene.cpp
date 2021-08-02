@@ -238,3 +238,61 @@ void SimulationScene::turnOnInteraction()
     }
     m_Controller->turnOnLightInteraction();
 }
+
+void SimulationScene::setCsGreenLight(int CsNum)
+{
+    TurnOffAllLights();
+
+    if (CsNum==S_N-N_S-S_E-N_W)
+     {
+       m_Controller->getTraffic_light().at(0)->getLight()->at(1)->turnOn();
+       m_Controller->getTraffic_light().at(2)->getLight()->at(1)->turnOn();
+
+       m_Controller->getTraffic_light().at(1)->getLight()->at(3)->turnOn();
+       m_Controller->getTraffic_light().at(3)->getLight()->at(3)->turnOn();
+     }
+    else if (CsNum==S_W-N_E)
+    {
+       m_Controller->getTraffic_light().at(0)->getLight()->at(0)->turnOn();
+       m_Controller->getTraffic_light().at(2)->getLight()->at(0)->turnOn();
+
+       m_Controller->getTraffic_light().at(1)->getLight()->at(3)->turnOn();
+       m_Controller->getTraffic_light().at(3)->getLight()->at(3)->turnOn();
+
+    }
+    else if (CsNum==W_E-E_W-E_N-W_S)
+    {
+       m_Controller->getTraffic_light().at(1)->getLight()->at(1)->turnOn();
+       m_Controller->getTraffic_light().at(3)->getLight()->at(1)->turnOn();
+
+       m_Controller->getTraffic_light().at(0)->getLight()->at(3)->turnOn();
+       m_Controller->getTraffic_light().at(2)->getLight()->at(3)->turnOn();
+
+    }
+    else if (CsNum==E_S-W_N)
+    {
+       m_Controller->getTraffic_light().at(1)->getLight()->at(0)->turnOn();
+       m_Controller->getTraffic_light().at(3)->getLight()->at(0)->turnOn();
+
+       m_Controller->getTraffic_light().at(0)->getLight()->at(3)->turnOn();
+       m_Controller->getTraffic_light().at(2)->getLight()->at(3)->turnOn();
+
+    }
+
+             //m_light->at(i)->turnOff();
+
+
+}
+
+void SimulationScene::TurnOffAllLights()
+{
+    for(int i=0;i<m_Controller->getTraffic_light().size() ;i++)
+    {
+        for(int j=0;j<m_Controller->getTraffic_light().at(i)->getLight()->size() ;j++)
+        {
+            m_Controller->getTraffic_light().at(i)->getLight()->at(i)->turnOff();
+        }
+    }
+
+}
+
