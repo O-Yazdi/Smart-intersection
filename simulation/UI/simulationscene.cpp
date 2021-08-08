@@ -317,7 +317,7 @@ void SimulationScene::TurnOffAllLights()
     {
         for(int j=0;j<m_Controller->getTraffic_light().at(i)->getLight()->size() ;j++)
         {
-            m_Controller->getTraffic_light().at(i)->getLight()->at(i)->turnOff();
+            m_Controller->getTraffic_light().at(i)->getLight()->at(j)->turnOff();
         }
     }
 
