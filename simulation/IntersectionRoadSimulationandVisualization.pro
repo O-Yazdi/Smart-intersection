@@ -40,7 +40,8 @@ HEADERS += \
     UI/helpwidget.h \
     Utilities/qlightboxwidget.h \
     UI/intropage.h \
-    UI/simulationsetup.h
+    UI/simulationsetup.h \
+    communicator.h
 
 SOURCES += \
     Entities/TrafficLight/lightwidget.cpp \
@@ -59,6 +60,7 @@ SOURCES += \
     Utilities/road.cpp \
     Utilities/simulationcontrol.cpp \
     Utilities/vehiclesgenerator.cpp \
+    communicator.cpp \
     main.cpp \
     UI/simulationcontrolwidget.cpp \
     UI/uimainwindow.cpp \
@@ -82,3 +84,10 @@ FORMS += \
 
 DISTFILES += \
     CMakeLists.txt
+
+
+
+unix|win32: LIBS += -LC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/lib/ -lws2_32
+
+INCLUDEPATH += $$PWD/.
+DEPENDPATH += $$PWD/.

@@ -1,6 +1,9 @@
 #include "simulationscene.h"
-
-SimulationScene::SimulationScene(QGraphicsScene *parent):QGraphicsScene (parent)
+#include <thread>
+#include<iostream>
+int ind =0;
+int eerr = 0;
+SimulationScene::SimulationScene(QGraphicsScene *parent):QGraphicsScene (parent)//, comm(this)
 {
     //Add Road and Background to scene
     //QGraphicsPixmapItem *m_picture = new QGraphicsPixmapItem(QPixmap(":/image/Image/road-image.png")/*.scaled (600,600)*/);
@@ -28,7 +31,31 @@ SimulationScene::SimulationScene(QGraphicsScene *parent):QGraphicsScene (parent)
     m_Controller = new TrafficController;
     this->addItem(m_Controller);
 
+    comm = new Communicator(*this);
+    try
+    {
+        if(ind != 0)
+        {
+            comm->connect("127.0.0.1", 8826);
+            std::thread (&Communicator::startConnection, comm).detach();
+        }
+        ind++;
 
+    }
+
+    catch(...)
+    {
+        qDebug()<<eerr;
+    }
+}
+
+SimulationScene::~SimulationScene()
+{
+    if (comm != nullptr)
+    {
+        delete comm;
+        comm = nullptr;
+    }
 }
 
 uint SimulationScene::getNumber(const region &x) const

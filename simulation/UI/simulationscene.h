@@ -5,6 +5,7 @@
 #define WE_EW_EN_WS    2
 #define ES_WN          3
 
+#include "communicator.h"
 #include <QGraphicsScene>
 #include <QGraphicsSvgItem>
 #include <omp.h>
@@ -12,11 +13,15 @@
 #include "Entities/Vehicle/vehicle.h"
 #include "Entities/trafficdetector.h"
 #include "Entities/trafficcontroller.h"
+
+class Communicator;
+
 class SimulationScene: public QGraphicsScene
 {
 
 public:
     SimulationScene(QGraphicsScene *parent = nullptr);
+    ~SimulationScene();
     uint getNumber(const region &x) const;
     QList<Vehicle *> getVehicle() const;
     QList<Vehicle *> getVehicle(const region &r) const;
@@ -58,6 +63,8 @@ private:
     QList<Vehicle* > m_Vehicles;
     TrafficController *m_Controller;
     QGraphicsSvgItem *m_path;
+
+    Communicator *comm;
 
 //protected:
 //    virtual void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
