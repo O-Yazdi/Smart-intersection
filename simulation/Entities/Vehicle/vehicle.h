@@ -65,8 +65,10 @@ public:
     void setRegion(region r);
     /// ////////////
 
-
+    int getCs();
     int getPriority() const {return priority;}
+    int getWaitingTime() const {return waitingTimeinRed;}
+    bool getIsEmergency() const {return isEmergency;}
     bool is_in_stop_point();
     QList<QPointF> get_path() const;
     bool Isinthejunction();
@@ -139,8 +141,10 @@ private:
     int createRandomPriority();
     int createRandomPriorityForEachPassenger();
     int createRandomAmountOfPassengersInVehicle();
+    int setCs();
     int priority;
     int waitingTimeinRed = 0; //in sec from epoch
+    int CS;
 };
 
 #endif // VEHICLE_H

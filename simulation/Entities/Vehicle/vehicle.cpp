@@ -625,3 +625,28 @@ int Vehicle::createRandomPriorityForEachPassenger()
     }
     return priorityForOnePassenger;
 }
+
+int Vehicle::setCs()
+{
+    if((this->getRegion()==REGION_N_S or this->getRegion()==REGION_S_N)
+            and ((this->getDir()==THROUGH) or(this->getDir()==RIGHT_TURNING)))
+        CS = SN_NS_SE_NW;
+
+    else if ((this->getRegion()==REGION_N_S or this->getRegion()==REGION_S_N)
+            and this->getDir()==LEFT_TURNING)
+        CS = SW_NE;
+
+    else if ((this->getRegion()==REGION_E_W or this->getRegion()==REGION_W_E)
+        and ((this->getDir()==THROUGH) or(this->getDir()==RIGHT_TURNING)))
+        CS = WE_EW_EN_WS;
+
+    else if ((this->getRegion()==REGION_E_W or this->getRegion()==REGION_W_E)
+        and this->getDir()==LEFT_TURNING)
+        CS = ES_WN;
+}
+
+int Vehicle::getCs()
+{
+    this->setCs();
+    return CS;
+}

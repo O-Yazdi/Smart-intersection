@@ -6,6 +6,10 @@
 #include <Windows.h>
 #include <string>
 #include "UI/simulationscene.h"
+#include "commonenum.h"
+#include "Entities/Vehicle/vehicle.h"
+
+typedef std::vector<unsigned char> Buffer;
 
 class SimulationScene;
 
@@ -34,6 +38,12 @@ private:
     SOCKET _simulationSocket;
     WSAInitializer wsaInit;
     SimulationScene &sim;
+    Buffer buff;
+
+    void vehiclesToBuff(QList<Vehicle *> veh);
+    void sendDataToServer() const;
+    void getResponseFromServer();
+    void buffToIntArr(int* arr) const;
 
 public:
     Communicator(SimulationScene& sim);

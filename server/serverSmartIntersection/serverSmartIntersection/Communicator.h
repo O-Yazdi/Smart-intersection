@@ -21,7 +21,7 @@ private:
 	void sendResponseToClient(SOCKET client_socket, const Buffer& buff) const;
 	Intersection arrangeBufferToIntersection(const std::vector<Vehicle>& vec) const;
 	void serializeResponse(Buffer& buff, int cs, int* arrPriCS);
-
+	void sendDeffaulMssg(SOCKET client_socket) const;
 	//void sayHello(SOCKET client_socket) const;
 	
 

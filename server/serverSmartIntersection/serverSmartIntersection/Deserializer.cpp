@@ -13,6 +13,10 @@ Vehicle Deserializer::deserializeEachVehicle(unsigned char* buff, int length)
     memcpy(&time, buff + 8, sizeof(int));
     memcpy(&isEmergency, buff + 12, sizeof(int));
 
+    if (isEmergency != 0 and isEmergency != 1)
+    {
+        int test = isEmergency;
+    }
     return Vehicle(priority, conflictSideID, time, isEmergency);
 }
 

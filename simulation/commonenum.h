@@ -7,6 +7,11 @@
 #define PARALLEL_CONCURRENT 0
 
 
+#define SN_NS_SE_NW    0
+#define SW_NE          1
+#define WE_EW_EN_WS    2
+#define ES_WN          3
+
 ////////////////
 #ifndef MAX_S_N
     #define MAX_S_N 20

@@ -1,9 +1,6 @@
 #ifndef SIMULATIONSCENE_H
 #define SIMULATIONSCENE_H
-#define SN_NS_SE_NW    0
-#define SW_NE          1
-#define WE_EW_EN_WS    2
-#define ES_WN          3
+
 
 #include "communicator.h"
 #include <QGraphicsScene>
