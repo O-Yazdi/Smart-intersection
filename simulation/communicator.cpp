@@ -133,62 +133,32 @@ void Communicator::buffToIntArr(int* arr) const
 
 void Communicator::startConnection()
 {
-    //int carData[4];
-    //carData[0] = 3;			//priority
-    //carData[1] = 2;			//CS ID
-    //carData[2] = 123432;	//time
-    //carData[3] = 0;			//is emergency
-
-    //int arrToSend[17];		//1 for the length, and 4 int for each car
-    //arrToSend[0] = 4;	//cuz 4 cars
-
     int dataFromServer[5];
 
-    //for (int i = 1; i < 17; i += 4)
-    //{
-        //for (int j = 0; j < 4; j++)
-        //{
-            //arrToSend[i + j] = carData[j];
-        //}
-    //}
-    //for (int i = 0; i < 17; i++)
-    //{
-    //	std::cout << arrToSend[i] << " ";
-    //}
     std::cout << "\n";
-
-    char buffToSend[68];
-    char buffToRec[20];
-
-    //memcpy(buffToSend, arrToSend, 68);
 
     while (true)
     {
         using namespace std::chrono_literals;
         std::this_thread::sleep_for(4s);
 
-        //get all cars
-        //check the cars who before the line
-        //make buff of char to send
-        //we need mutexs
+
         QList<Vehicle *> veh = sim.getVehicle();
 
 
         vehiclesToBuff(veh);
 
-        //send(_simulationSocket, buffToSend, 68, 0);  // last parameter: flag. for us will be 0.
         sendDataToServer();
 
-        //recv(_simulationSocket, buffToRec, 20, 0);
         getResponseFromServer();
 
         buffToIntArr(dataFromServer);
 
         std::cout << "response from server: " << std::endl;
-        /*for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             std::cout << dataFromServer[i] << " ";
-        }*/
+        }
         std::cout << "\n";
 
         sim.setCsGreenLight(dataFromServer[0]);
