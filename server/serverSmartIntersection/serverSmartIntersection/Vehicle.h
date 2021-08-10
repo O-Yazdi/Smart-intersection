@@ -9,8 +9,8 @@ public:
 	void setFinalPriority(int prio) { this->finalPriority = prio; }
 private:
 	int priorityFromPassengers;
-	int finalPriority; //priority that takes the waiting time
-	int waitingTime;//need to get date and time then to calc the waiting time
+	int finalPriority; //final priority that consider the waiting time
+	int waitingTimeSinceEpoch;
 	bool isEmergency;
 	int conflictSideID;
 };

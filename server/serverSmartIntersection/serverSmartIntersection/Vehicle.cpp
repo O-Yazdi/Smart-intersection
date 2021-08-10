@@ -1,6 +1,7 @@
 #include"Vehicle.h"
+#include "SmartIntersection.h"
 #include <exception>
-Vehicle::Vehicle(int passengersPriorities, int conflictSideID, int waitingTime, int isEmergency)
+Vehicle::Vehicle(int passengersPriorities, int conflictSideID, int waitingTimeSinceEpoch, int isEmergency)
 {
 	if (conflictSideID < 0 or conflictSideID > 3)
 		throw std::exception(__FUNCTION__ " conflictSideID must be between 0 to 3");
@@ -10,7 +11,8 @@ Vehicle::Vehicle(int passengersPriorities, int conflictSideID, int waitingTime, 
 
 	this->priorityFromPassengers = passengersPriorities;
 	this->conflictSideID = conflictSideID;
-	this->waitingTime = waitingTime;
+	this->waitingTimeSinceEpoch = waitingTimeSinceEpoch;
 	this->isEmergency = isEmergency;
-	this->finalPriority = passengersPriorities;
+
+	this->finalPriority = SmartIntersection::calculateFinalPriority(priorityFromPassengers, waitingTimeSinceEpoch);
 }
