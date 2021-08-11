@@ -653,3 +653,7 @@ int Vehicle::getCs()
     this->setCs();
     return CS;
 }
+bool Vehicle::notEnterIntersectionYet() const
+{
+    return (m_point_index >= 34 and m_point_index<=39);
+}

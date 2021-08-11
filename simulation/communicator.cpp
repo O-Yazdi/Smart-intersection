@@ -29,7 +29,7 @@ void Communicator::vehiclesToBuff(QList<Vehicle *> veh)
 
     for(int i=0; i<veh.size(); i++)
     {
-        //if(veh[i]->is_in_stop_point())
+        if(veh[i]->notEnterIntersectionYet())
         {
             qDebug()<<"\ncar number : = "<<i;
             carsInt.push_back(veh[i]->getPriority());

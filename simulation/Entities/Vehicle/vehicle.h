@@ -64,7 +64,7 @@ public:
     /// set Which region vehicle belong to
     void setRegion(region r);
     /// ////////////
-
+    bool notEnterIntersectionYet() const;
     int getCs();
     int getPriority() const {return priority;}
     int getWaitingTime() const {return waitingTimeinRed;}
