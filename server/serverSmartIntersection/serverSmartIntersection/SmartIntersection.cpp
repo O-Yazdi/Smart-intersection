@@ -1,6 +1,7 @@
 #include "SmartIntersection.h"
 #include<chrono>
-int ind = 0;
+#include <iostream>
+using namespace std;
 
 void SmartIntersection::setCurrentCSGreen(int csID)
 {
@@ -10,16 +11,47 @@ void SmartIntersection::setCurrentCSGreen(int csID)
 	currentCSGreen = csID;
 }
 
-int SmartIntersection::calculatenextCSGreen(int* priCS) const
+int SmartIntersection::calculatenextCSGreen(int* priCS)
 {
-	//need to calc the sum priority for each CS
-	for (int i = 0; i < 4; i++)
+	iterationCountFromLastChange++;
+	resetSumPriorities(priCS);
+
+	int csGreenLightRes = 0;
+	//sum the final priority for each CS and check if there emergency vehicle
+	for (const auto& cs : intersect.getCsList())
 	{
-		priCS[i] = i;
+		for (const auto& veh : cs.getVehicleList())
+		{
+			if (veh.getIsEmergency())
+			{
+				cout << "IsEmergency in :" << veh.getCS() << "\n";
+				resetSumPriorities(priCS);
+				return veh.getCS();
+			}
+			priCS[veh.getCS()] += veh.getFinalPriority();
+		}
 	}
-	//to do...
-	ind = 0;//(ind + 1) % 4;
-	return ind;
+
+	//we want to add priority to the CS that have the green light to let the traffic flow
+	if (priCS[currentCSGreen] != 0) //mean that this CS with the current green there vehicles
+	{
+		priCS[currentCSGreen] += priorityForCurrentGreen;
+	}
+
+	if (iterationCountFromLastChange <= minTimeForGreen)
+	{
+		csGreenLightRes = currentCSGreen; //we dont switch
+	}
+	else
+	{
+		csGreenLightRes = maxCsPriority(priCS);
+		if (csGreenLightRes != currentCSGreen)
+			iterationCountFromLastChange = 0;
+	}
+
+	//csGreenLightRes = (csGreenLightRes + 1) % 4;
+	currentCSGreen = csGreenLightRes;
+	return csGreenLightRes;
 }
 
 //to prevent starvtion for vehicles with low priority we use aging. linear function: every second = 1 priority
@@ -44,4 +76,27 @@ int SmartIntersection::calculateFinalPriority(int priorityFromPassengers, int wa
 	return finalPriority;
 
 	//return MAX_PRIORITY;
+}
+
+void SmartIntersection::resetSumPriorities(int* priCS) const
+{
+	for (int i = 0; i < 4; i++)
+	{
+		priCS[i] = 0;
+	}
+}
+
+int SmartIntersection::maxCsPriority(int* priCS) const
+{
+	int maxCsPirority = priCS[0], indMax = 0;
+
+	for (int i = 1; i < 4; i++)
+	{
+		cout << "\tpriCS[" << i << "] : " << priCS[i];
+		if (priCS[i] > maxCsPirority)
+			indMax = i;
+	}
+	cout << "\n";
+
+	return indMax;
 }

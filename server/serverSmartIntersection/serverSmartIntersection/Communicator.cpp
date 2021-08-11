@@ -97,7 +97,7 @@ void Communicator::getLength(SOCKET client_socket,int& length) const
 	char bufferPre[DATA_BYTES_SIZE]; //we read 4 bytes =  int, length of the data
 
 	int res = recv(client_socket, bufferPre, DATA_BYTES_SIZE, MSG_WAITALL);
-	std::cout << "res=" << res << std::endl;
+	//std::cout << "res=" << res << std::endl;
 	if (res < 0)
 		throw std::exception(__FUNCTION__ " recv failed");
 	if (res == 0)
@@ -223,8 +223,8 @@ void Communicator::handleSimulation(SOCKET client_socket)
 		{
 			std::string str = er.what();
 			std::cerr << er.what();
-			sendDeffaulMssg(client_socket);
-			//return;
+			//sendDeffaulMssg(client_socket);
+			return;
 		}
 		catch (...)
 		{

@@ -8,11 +8,12 @@ public:
 	ConflictSide(int id) : conflictSideID(id) {}
 	void addVehicleToCS(const Vehicle& v)
 	{
-		VehicleList.emplace_back(v);
+		vehicleList.emplace_back(v);
 	}
 	int getCSID() const { return conflictSideID; }
+	std::vector<Vehicle> getVehicleList() const { return vehicleList; }
 
 private:
-	std::vector<Vehicle> VehicleList;
+	std::vector<Vehicle> vehicleList;
 	int conflictSideID;
 };

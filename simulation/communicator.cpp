@@ -140,7 +140,7 @@ void Communicator::startConnection()
     while (true)
     {
         using namespace std::chrono_literals;
-        std::this_thread::sleep_for(4s);
+        std::this_thread::sleep_for(1s);
 
 
         QList<Vehicle *> veh = sim.getVehicle();
