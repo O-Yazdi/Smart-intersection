@@ -38,15 +38,17 @@ int SmartIntersection::calculatenextCSGreen(int* priCS)
 		priCS[currentCSGreen] += priorityForCurrentGreen;
 	}
 
-	if (iterationCountFromLastChange <= minTimeForGreen)
+	if (iterationCountFromLastChange <= minTimeForGreen and priCS[currentCSGreen] != 0)
 	{
 		csGreenLightRes = currentCSGreen; //we dont switch
+		cout << "NEXT_CS_GREEN: " << currentCSGreen << "\nDidn't switch to give more time, and there cars in this CS\n\n";
 	}
 	else
 	{
 		csGreenLightRes = maxCsPriority(priCS);
 		if (csGreenLightRes != currentCSGreen)
 			iterationCountFromLastChange = 0;
+		cout << "NEXT_CS_GREEN: " << csGreenLightRes << "\n\n";
 	}
 
 	//csGreenLightRes = (csGreenLightRes + 1) % 4;
@@ -63,7 +65,7 @@ int SmartIntersection::calculatePriorityWaitingTime(int waitingTimeSinceEpoch)
 
 	int end = endTime.count();
 
-	int waitingTimeInRed = waitingTimeSinceEpoch - end;
+	int waitingTimeInRed = end - waitingTimeSinceEpoch;
 	return waitingTimeInRed * 1;
 }
 
@@ -90,7 +92,7 @@ int SmartIntersection::maxCsPriority(int* priCS) const
 {
 	int maxCsPirority = priCS[0], indMax = 0;
 
-	for (int i = 1; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		cout << "\tpriCS[" << i << "] : " << priCS[i];
 		if (priCS[i] > maxCsPirority)
