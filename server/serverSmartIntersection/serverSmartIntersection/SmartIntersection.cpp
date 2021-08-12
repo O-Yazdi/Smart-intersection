@@ -59,6 +59,9 @@ int SmartIntersection::calculatenextCSGreen(int* priCS)
 //to prevent starvtion for vehicles with low priority we use aging. linear function: every second = 1 priority
 int SmartIntersection::calculatePriorityWaitingTime(int waitingTimeSinceEpoch)
 {
+	if (waitingTimeSinceEpoch == 0)
+		return 0;
+
 	using namespace std::chrono;
 	seconds endTime = duration_cast<seconds>(
 		system_clock::now().time_since_epoch());
