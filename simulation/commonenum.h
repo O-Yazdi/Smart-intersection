@@ -74,10 +74,10 @@ struct SimulationInput{
         B_EW = 2500;
     }
     void trafficBusy(){
-        B_NS = 1700;
+        B_NS = 2300;
         B_SN = 1900;
-        B_WE = 1900;
-        B_EW = 1600;
+        B_WE = 2300;
+        B_EW = 2000;
     }
     void LightingQuick(){
         RED_LIGHT = 3000;

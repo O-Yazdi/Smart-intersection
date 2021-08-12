@@ -431,7 +431,7 @@ void Vehicle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 QPixmap Vehicle::generateImage()
 {
     bool isEmergency = false;
-    if(qrand() % probabiltyForEmergencyCar + 1 == probabiltyForEmergencyCar)
+    if(qrand() % 100 + 1 <= probabiltyForEmergencyCar)
         isEmergency = true;
 
     if(!isEmergency)
