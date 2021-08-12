@@ -62,10 +62,10 @@ struct SimulationInput{
     bool ShowTrafficLight = true;
     void trafficEasy()
     {
-        B_NS = 4000;
-        B_SN = 3500;
-        B_WE = 3900;
-        B_EW = 4100;
+        B_NS = 2100;
+        B_SN = 1000000;
+        B_WE = 1500;
+        B_EW = 1000000;
     }
     void trafficModerate(){
         B_NS = 2500;
@@ -74,10 +74,10 @@ struct SimulationInput{
         B_EW = 2500;
     }
     void trafficBusy(){
-        B_NS = 2300;
+        B_NS = 2200;
         B_SN = 1900;
-        B_WE = 2300;
-        B_EW = 2000;
+        B_WE = 2700;
+        B_EW = 2300;
     }
     void LightingQuick(){
         RED_LIGHT = 3000;
