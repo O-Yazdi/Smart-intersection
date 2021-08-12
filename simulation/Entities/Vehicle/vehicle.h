@@ -10,7 +10,7 @@
 #include <qmath.h>
 
 static const float ACCER = 0.005;
-static const int probabiltyForEmergencyCar = 1; //probabilty for emergency car in precent (0 to 100)
+static const int probabiltyForEmergencyCar = 3; //probabilty for emergency car in precent (0 to 100)
 
 class SimulationScene;
 class Vehicle: public QObject,public QGraphicsPixmapItem
