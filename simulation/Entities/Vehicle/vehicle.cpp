@@ -164,7 +164,7 @@ void Vehicle::stop_advance()
 {
     m_speed = 0;
 
-    if(m_point_index >= 34 and m_point_index<=39 and waitingTimeinRed == 0)
+    if(m_point_index<=39 and waitingTimeinRed == 0)
     {
         waitingTimeinRed = QDateTime::currentSecsSinceEpoch();
         //qDebug()<<      "waitingTimeinRed= "<<  waitingTimeinRed<<"\n";
@@ -655,5 +655,5 @@ int Vehicle::getCs()
 }
 bool Vehicle::notEnterIntersectionYet() const
 {
-    return (m_point_index >= 34 and m_point_index<=39);
+    return (m_point_index<=39);
 }
