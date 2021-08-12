@@ -55,6 +55,9 @@ public:
     void turnOnInteraction();
     void setCsGreenLight(int CsNum);
     void TurnOffAllLights();
+    void orangeToRedAndRedToOrange(int CsNum);
+    void orangeToGreen(int CsNum);
+    int getCurrentCsGreen() const;
 
 private:
     QList<Vehicle* > m_Vehicles;

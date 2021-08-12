@@ -9,7 +9,7 @@
 #include <QObject>
 #include <qmath.h>
 
-static const float ACCER = 0.01;
+static const float ACCER = 0.0006;
 static const int probabiltyForEmergencyCar = 100;
 
 class SimulationScene;

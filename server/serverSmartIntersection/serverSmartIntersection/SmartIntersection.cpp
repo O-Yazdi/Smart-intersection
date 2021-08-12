@@ -38,7 +38,7 @@ int SmartIntersection::calculatenextCSGreen(int* priCS)
 		priCS[currentCSGreen] += priorityForCurrentGreen;
 	}
 
-	if (iterationCountFromLastChange <= minTimeForGreen and priCS[currentCSGreen] != 0)
+	if (iterationCountFromLastChange < minIteratonForGreen and priCS[currentCSGreen] != 0)
 	{
 		csGreenLightRes = currentCSGreen; //we dont switch
 		cout << "NEXT_CS_GREEN: " << currentCSGreen << "\nDidn't switch to give more time, and there cars in this CS\n\n";

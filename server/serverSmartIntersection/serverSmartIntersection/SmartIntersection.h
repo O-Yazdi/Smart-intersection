@@ -21,8 +21,8 @@ private:
 	Intersection intersect;
 	int currentCSGreen = 0;
 	int iterationCountFromLastChange = 0;			//this hold the count of iteration that pass form the switch CS green
-	int const minTimeForGreen = 4;					//minimum 4 iteration before change the traffic light (in the 4th we can switch)
-	int const timeForIteration = 1;					//every 1 sec = 1 iteration
+	int const minIteratonForGreen = 2;				//minimum 4 sec (coz every iteration = 2 sec)  before change the traffic light (in the 4th we can switch)
+	int const timeForIteration = 2;					//every 1 sec = 1 iteration
 	int const priorityForCurrentGreen = 15;			
 	//static int const MAX_PRIORITY = 50;
 };
