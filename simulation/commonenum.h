@@ -68,16 +68,16 @@ struct SimulationInput{
         B_EW = 1000000;
     }
     void trafficModerate(){
-        B_NS = 2500;
-        B_SN = 2000;
+        B_NS = 2700;
+        B_SN = 2800;
         B_WE = 2900;
-        B_EW = 2500;
+        B_EW = 2750;
     }
     void trafficBusy(){
-        B_NS = 2200;
-        B_SN = 1900;
-        B_WE = 2700;
-        B_EW = 2300;
+        B_NS = 2500;
+        B_SN = 2400;
+        B_WE = 2300;
+        B_EW = 2450;
     }
     void LightingQuick(){
         RED_LIGHT = 3000;
