@@ -10,6 +10,8 @@
 *.dll
 *.dylib
 
+.idea
+
 # Qt-es
 object_script.*.Release
 object_script.*.Debug
@@ -50,3 +52,8 @@ compile_commands.json
 
 # QtCreator local machine specific files for imported projects
 *creator.user*
+
+*_qmlcache.qrc
+design.png
+Debug/
+.vs/
