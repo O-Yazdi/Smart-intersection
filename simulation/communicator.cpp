@@ -25,25 +25,34 @@ void Communicator::vehiclesToBuff(QList<Vehicle *> veh)
     int test =0;
     std::vector<int> carsInt;
 
-    qDebug()<<"veh.size()="<<veh.size()<<"\n";
+    //qDebug()<<"veh.size()="<<veh.size()<<"\n";
 
     for(int i=0; i<veh.size(); i++)
     {
         if(veh[i]->notEnterIntersectionYet())
         {
-            qDebug()<<"\ncar number : = "<<i;
+            //qDebug()<<"\ncar number : = "<<i;
             carsInt.push_back(veh[i]->getPriority());
-            qDebug()<<"\tPriority = "<<veh[i]->getPriority();
+            //qDebug()<<"\tPriority = "<<veh[i]->getPriority();
 
             carsInt.push_back(veh[i]->getCs());
-            qDebug()<<"\tCS = "<<veh[i]->getCs();
+            //qDebug()<<"\tCS = "<<veh[i]->getCs();
 
             carsInt.push_back(veh[i]->getWaitingTime());
-            qDebug()<<"\tWaitingTime = "<<veh[i]->getWaitingTime();
+            //qDebug()<<"\tWaitingTime = "<<veh[i]->getWaitingTime();
 
             carsInt.push_back(veh[i]->getIsEmergency());
-            qDebug()<<"\tIsEmergency = "<<(int)veh[i]->getIsEmergency();
+            //qDebug()<<"\tIsEmergency = "<<(int)veh[i]->getIsEmergency();
 
+        }
+        else
+        {
+            if(!veh[i]->getIsCountedAlready())
+            {
+                sumOfPrioritiesThatPassIntersection += veh[i]->getPriority();
+                veh[i]->setIsCounted(true);
+                qDebug()<<"sumOfPriorities = "<<sumOfPrioritiesThatPassIntersection<<"\n";
+            }
         }
     }
 
@@ -52,12 +61,12 @@ void Communicator::vehiclesToBuff(QList<Vehicle *> veh)
 
     buff.clear();
 
-    qDebug()<<"carsInt.size()="<<carsInt.size()<<"\n";
+    //qDebug()<<"carsInt.size()="<<carsInt.size()<<"\n";
 
     int length = carsInt.size()/4; //coz every cars its 4 int
     char lengthInChar[4];
     memcpy(lengthInChar, &length, 4);
-    qDebug()<<"length = "<<length<<"\n";
+    //qDebug()<<"length = "<<length<<"\n";
     for(int i=0; i<4; i++)
     {
         buff.push_back(lengthInChar[i]);

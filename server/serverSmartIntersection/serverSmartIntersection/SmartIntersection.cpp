@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+int ind = 0;
+int countItr = 0;
 void SmartIntersection::setCurrentCSGreen(int csID)
 {
 	if (csID < 0 or csID > 3)
@@ -13,6 +15,21 @@ void SmartIntersection::setCurrentCSGreen(int csID)
 
 int SmartIntersection::calculatenextCSGreen(int* priCS)
 {
+	if (!smartIntersection) //to act like 'stupid' intersection
+	{
+		if (countItr == 0)
+		{
+			countItr++;
+			return ind;
+		}
+		else
+		{
+			ind = (ind + 1) % 4;
+			countItr = 0;
+			return ind;
+		}
+	}
+
 	iterationCountFromLastChange++;
 	resetSumPriorities(priCS);
 

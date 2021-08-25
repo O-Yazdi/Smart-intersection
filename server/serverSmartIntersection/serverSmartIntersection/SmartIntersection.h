@@ -22,7 +22,9 @@ private:
 	int currentCSGreen = 0;
 	int iterationCountFromLastChange = 0;			//this hold the count of iteration that pass form the switch CS green
 	int const minIteratonForGreen = 2;				//minimum 4 sec (coz every iteration = 2 sec)  before change the traffic light (in the 4th we can switch)
-	int const timeForIteration = 2;					//every 1 sec = 1 iteration
-	int const priorityForCurrentGreen = 15;			
+	int const timeForIteration = 2;					//The simulation sends data to the server every 2 seconds
+	int const priorityForCurrentGreen = 15;			//the current CS with the green light gets more 15 priorities points
 	//static int const MAX_PRIORITY = 50;
+	bool const smartIntersection = true;
+
 };

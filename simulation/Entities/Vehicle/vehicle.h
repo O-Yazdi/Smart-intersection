@@ -66,6 +66,9 @@ public:
     /// ////////////
     bool notEnterIntersectionYet() const;
     int getCs();
+    bool getIsCountedAlready() const {return isCountedAlready;}
+    void setIsCounted(bool val) { isCountedAlready = val;}
+
     int getPriority() const {return priority;}
     int getWaitingTime() const {return waitingTimeinRed;}
     bool getIsEmergency() const {return isEmergency;}
@@ -145,6 +148,7 @@ private:
     int priority;
     int waitingTimeinRed = 0; //in sec from epoch
     int CS;
+    bool isCountedAlready = false;
 };
 
 #endif // VEHICLE_H

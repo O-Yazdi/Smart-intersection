@@ -50,6 +50,7 @@ public:
     ~Communicator();
     void connect(std::string serverIP, int port);
     void startConnection();
+    int sumOfPrioritiesThatPassIntersection = 0;
 };
 
 
